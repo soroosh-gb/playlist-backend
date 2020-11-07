@@ -1,4 +1,4 @@
 class User < ApplicationRecord
-    has_many :tracklists
-    has_many :tracks, through: :tracklists
+    has_many :user_tracklists
+    has_many :tracklists, through: :user_tracklists
 end

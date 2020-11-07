@@ -1,12 +1,13 @@
 class Track < ApplicationRecord
-    has_many :tracklists
-    has_many :users, through: :tracklists
+    has_many :tracklist_tracks
+    has_many :tracklists, through: :tracklist_tracks
+    
 
     def self.new_from_spotify_track(spotify_track)
         Track.new(
           spotify_id: spotify_track.id,
           name: spotify_track.name,
-          artists: spotify_track.artists[0].name,
+          artist: spotify_track.artists[0].name,
           image: spotify_track.album.images[0]["url"],
           preview: spotify_track.preview_url
         )
@@ -17,5 +18,7 @@ class Track < ApplicationRecord
         track.save
         track
     end
+
+    
 
 end
