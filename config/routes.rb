@@ -13,6 +13,7 @@ Rails.application.routes.draw do
           get :top_100
           get :random
           get :search
+          get :all 
         end
     end
     resources :users
