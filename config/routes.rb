@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       # resources :tracks
       
-    
+      resources :users
+      post '/login', to: 'auth#create'
+      get '/home', to: 'users#home'
       resources :tracklists
       resources :user_tracklists
       resources :tracklist_tracks
@@ -16,9 +18,7 @@ Rails.application.routes.draw do
           get :all 
         end
     end
-    resources :users
-    post '/login', to: 'auth#create'
-    get '/profile', to: 'user#profile'
+    
   end
 end
 end

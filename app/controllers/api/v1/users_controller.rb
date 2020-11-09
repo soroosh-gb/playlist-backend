@@ -6,14 +6,15 @@ class Api::V1::UsersController < ApplicationController
         render json: @users
     end
 
-    def profile
+    def home
         render json: { user: current_user }, status: :accepted
     end
 
     def create
         @user = User.create(user_params)
+        # byebug
         if @user.valid?
-            render json: { user: UserSerializer.new(@user), jwt: token}, status: :created
+            render json: { user: UserSerializer.new(@user)}, status: :created
         else
             render json: { error: 'failed to create user' }, status: :not_acceptable
 
@@ -27,7 +28,7 @@ class Api::V1::UsersController < ApplicationController
     
     private
     def user_params
-        params.require(:user).permit(:username, :password_digest)
+        params.require(:user).permit(:username, :password)
     end
 
 end
