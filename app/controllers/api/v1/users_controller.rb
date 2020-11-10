@@ -1,8 +1,8 @@
 class Api::V1::UsersController < ApplicationController
-    skip_before_action :authorized, only: [:create, :index, :home]
+    # skip_before_action :authorized, only: [:create, :index]
+    before_action :authorized, except: [:create, :index]
     
     def index
-        
         @users = User.all
         render json: @users
     end
@@ -11,7 +11,7 @@ class Api::V1::UsersController < ApplicationController
     # render json: { user: UserSerializer.new(current_user) }, status: :accepted
 # end
     def home
-        byebug
+        # byebug
         render json: { user: UserSerializer.new(current_user) }, status: :accepted
     end
 

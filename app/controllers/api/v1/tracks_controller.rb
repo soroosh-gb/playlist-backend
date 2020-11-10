@@ -1,5 +1,6 @@
 class Api::V1::TracksController < ApplicationController
-    skip_before_action :authorized
+    # skip_before_action :authorized
+
 
     def index
         @tracks = Track.all
