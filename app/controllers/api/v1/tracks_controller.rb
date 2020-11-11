@@ -7,6 +7,10 @@ class Api::V1::TracksController < ApplicationController
         render json: @tracks
     end
 
+    def show
+
+    end
+
 
     def all
         s_tracks = RSpotify::Playlist.find("1276640268","2kpoUUJ5a4Cw3feTkFJhZ2").tracks
@@ -15,6 +19,21 @@ class Api::V1::TracksController < ApplicationController
         end
     render json: @tracks
     end
+
+    def create
+        # byebug
+        track = Track.create(track_params)
+
+        render json: track
+    end
+
+    def destroy
+        track = Track.find(params[:id])
+        track.destroy
+        render json: track
+
+    end
+
 
     # def random
     #     s_tracks = RSpotify::Playlist.browse_featured.first.tracks
@@ -33,4 +52,9 @@ class Api::V1::TracksController < ApplicationController
     #     end
     # render json: @tracks
     # end
+
+    private
+    def track_params
+        params.require(:track).permit!
+    end
 end
