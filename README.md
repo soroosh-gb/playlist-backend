@@ -1,25 +1,8 @@
-# README
+Playlist-backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Playlist is a Spotify helper app which helps users create their own playlist from Spotify songs. 
 
-Things you may want to cover:
+<img src="https://www.prsformusic.com/-/media/images/mmagazine/images/2017/04/streaming2017.jpg" />
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# playlist-backend
+- Utilized Spotify API to access songs and playlists for listening and organization.
+- Utilized Spotify React player to playback chosen songs by users from Spotify API, therefore users can listen to the song directly from the app without using Spotify.
